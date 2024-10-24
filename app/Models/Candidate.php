@@ -9,7 +9,7 @@ class Candidate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'nomor_urut', 'image', 'visi_misi'];
+    protected $fillable = ['name', 'nomor_urut', 'image', 'visi_misi','image_url',];
 
     public function getImageUrlAttribute()
 {

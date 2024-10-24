@@ -27,6 +27,12 @@
                     <h3 class="text-lg font-semibold">{{ $candidate->name }}</h3>
                     <p class="text-gray-600 mb-2">Nomor Urut: {{ $candidate->nomor_urut }}</p>
                     <p class="text-gray-500 text-sm mb-4">{{ $candidate->visi_misi }}</p>
+
+                    <!-- Tambahkan Tombol Edit -->
+                    <a href="{{ route('candidates.edit', $candidate->id) }}" 
+                        class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                        Edit
+                    </a>
                 </div>
             @endforeach
         </div>

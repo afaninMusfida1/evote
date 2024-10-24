@@ -60,4 +60,43 @@ class CandidateController extends Controller
         // Jika bukan admin, arahkan kembali
         return redirect('/')->with('error', 'You do not have admin access.');
     }
+
+    public function edit($id)
+{
+    $candidate = Candidate::findOrFail($id);
+    return view('candidates.edit', compact('candidate'));
+}
+
+public function update(Request $request, $id)
+{
+    $candidate = Candidate::findOrFail($id);
+
+    // Validasi data
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'nomor_urut' => 'required|integer',
+        'visi_misi' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar
+    ]);
+
+    // Cek apakah ada gambar yang diunggah
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imagePath = $image->store('candidate_images', 'public');
+    
+        // Hapus gambar lama jika ada
+        if ($candidate->image) { // Ganti image_url dengan image
+            Storage::disk('public')->delete($candidate->image);
+        }
+    
+        // Simpan jalur gambar baru
+        $candidate->image = $imagePath; // Ganti image_url dengan image
+    }
+    
+    $candidate->update($request->except(['image'])); // Simpan perubahan
+     // Jangan update field 'image', karena sudah dihandle di atas
+
+    return redirect()->route('candidates.index')->with('success', 'Candidate updated successfully');
+}
+
 }

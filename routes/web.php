@@ -45,6 +45,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/candidates', [CandidateController::class, 'index'])->name('candidates.index');
     Route::get('/candidates/create', [CandidateController::class, 'create'])->name('candidates.create');
     Route::post('/candidates', [CandidateController::class, 'store'])->name('candidates.store');
+    Route::get('/candidates/{id}/edit', [CandidateController::class, 'edit'])->name('candidates.edit');
+    Route::put('/candidates/{id}', [CandidateController::class, 'update'])->name('candidates.update');
+
 });
 
 // Rute profil pengguna
