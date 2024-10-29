@@ -10,7 +10,7 @@
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "public": true,
-    "buildCommand": "npm run build && composer install --no-dev",
+   "buildCommand": "npm run build && curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev",
     "outputDirectory": "public",
     "env": {
         "PHP_VERSION": "8.1",
