@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h1 class="text-2xl font-bold text-center mb-6">Voting</h1>
+    <div class="bg-white p-4 lg:p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-center mb-4 lg:mb-6">Voting</h1>
 
         @if (session('success'))
             <div class="bg-green-100 text-green-700 border border-green-400 p-4 rounded mb-4 text-center">
@@ -24,10 +24,10 @@
         <form action="{{ route('vote.store') }}" method="POST" class="space-y-6">
             @csrf
             <h2 class="text-lg font-semibold text-center">Select a Candidate:</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($candidates as $candidate)
                     <div class="border p-4 rounded-lg shadow-lg flex flex-col items-center">
-                        <img src="{{ $candidate->image_url }}" alt="{{ $candidate->name }}" class="w-32 h-32 object-cover rounded-full mb-4">
+                        <img src="{{ $candidate->image_url }}" alt="{{ $candidate->name }}" class="w-24 h-24 lg:w-32 lg:h-32 object-cover rounded-full mb-4">
                         <h3 class="text-lg font-semibold">{{ $candidate->name }}</h3>
                         <p class="text-gray-600 mb-2">Nomor Urut: {{ $candidate->nomor_urut }}</p>
                         <p class="text-gray-500 text-sm mb-4">{{ $candidate->visi_misi }}</p>

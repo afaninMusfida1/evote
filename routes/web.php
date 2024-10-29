@@ -10,7 +10,7 @@ use App\Http\Controllers\CandidateController;
 // Halaman login sebagai halaman utama
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+});
 
 // Redirect dashboard ke halaman vote
 Route::get('/dashboard', [VoteController::class, 'index'])

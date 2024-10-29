@@ -17,7 +17,7 @@
 <body class="font-sans antialiased">
     <div class="flex">
         <!-- Sidebar -->
-<nav class="w-1/4 bg-gray-800 text-white min-h-screen">
+<nav class=" bg-gray-800 text-white min-h-screen">
     <div class="p-6">
         <h2 class="text-xl font-semibold mb-6">E-Vote</h2>
         <ul>
