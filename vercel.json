@@ -17,9 +17,10 @@
         }
     ],
     "public": true,
-    "buildCommand": "npm run dev",  
+    "buildCommand": "npm run build",  
     "outputDirectory": "public",  
     "env": {
+        "LARAVEL_BYPASS_ENV_CHECK": "1",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://yourproductionurl.com",  
